@@ -72,6 +72,48 @@ header {
   margin: 10px 0; /* Space between counter items */
   font-size: 16px;
 }
+/* Add this to your existing CSS */
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.button-group button {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  background-color: #4caf50; /* Button background color */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #45a049; /* Button hover color */
+  border-color: #45a049;
+}
+
+.button-group button:active {
+  background-color: #388e3c; /* Button active color */
+}
+#clearButton {
+  background-color: rgb(242, 115, 115);
+}
+
+#copyButton {
+  background-color: rgb(193, 189, 189);
+}
+#clearButton:hover {
+  background-color: darkred;
+}
+
+#copyButton:hover {
+  background-color: rgb(97, 95, 95);
+}
 
 .info-boxes {
   flex: 1; /* Adjusted flex-grow value to control width */
