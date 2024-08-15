@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   copyButton.addEventListener("click", () => {
     textInput.select();
-    document.exceCommand("copy");
+    document.execCommand("copy");
     alert("Text copied to clipboard!");
   });
 
