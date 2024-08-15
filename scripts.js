@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearButton = document.getElementById("clearButton");
   const copyButton = document.getElementById("copyButton");
   const darkModeButton = document.querySelector(".dark-mode-button");
+  const commonWordsDisplay = document.getElementById("commonWords");
 
   textInput.addEventListener("input", updateCounts);
 
@@ -23,20 +24,49 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function updateCounts() {
-    const text = textInput.value.trim();
-    const wordCount = text === "" ? 0 : text.split(/\s+/).length;
+    const text = textInput.value.trim().toLowerCase();
+    const wordsArray = text === "" ? [] : text.split(/\s+/);
+    const wordCount = wordsArray.length;
     const charCount = text.length;
     const readingSpeed = calculateReadingSpeed(wordCount);
 
     wordCountDisplay.textContent = wordCount;
     charCountDisplay.textContent = charCount;
     readingSpeedDisplay.textContent = readingSpeed;
+
+    updateCommonWords(wordsArray);
   }
 
   function calculateReadingSpeed(wordCount) {
     const wordsPerMinute = 200; //Average reading speed
     const readingTime = wordCount / wordsPerMinute;
     return readingTime.toFixed(2); // reading time in minutes
+  }
+
+  function updateCommonWords(wordsArray) {
+    const wordFrequency = {};
+
+    //calculate frequency of each word
+    wordsArray.forEach((word) => {
+      if (wordFrequency[word]) {
+        wordFrequency[word]++;
+      } else {
+        wordFrequency[word] = 1;
+      }
+    });
+
+    //sort the words by frequency
+    const sortedWords = Object.entries(wordFrequency).sort(
+      (a, b) => b[1] - a[1]
+    );
+
+    //Getting the top 7 words
+    const topWords = sortedWords.slice(0, 7);
+
+    //Display the top words and their frequency
+    commonWordsDisplay.innerHTML = topWords
+      .map(([word, count]) => `<p>${word}: ${count}</p>`)
+      .join("");
   }
 
   function toggleDarkMode() {
