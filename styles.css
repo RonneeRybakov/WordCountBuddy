@@ -157,18 +157,35 @@ header {
 }
 
 .dark-mode-button:hover {
-  background-color: #111d86; /* Button hover color */
+  background-color: #111d86;
 }
 
 /* Dark mode styles */
 .dark-mode {
-  background-color: #333;
+  background-color: #222; /* Dark background for the entire page */
   color: #f5f5f5;
 }
 
-.dark-mode .info-boxes .common-words {
-  background-color: #444;
+.dark-mode header {
+  background-color: #111;
+}
+
+.dark-mode .text-box textarea {
+  background-color: #333;
+  color: #f5f5f5;
   border: 1px solid #555;
+}
+
+.dark-mode .counters {
+  background-color: #333;
+  color: #f5f5f5;
+  border: 1px solid #555;
+}
+
+.dark-mode .info-boxes .common-words {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #f5f5f5;
 }
 
 .dark-mode .info-title {
@@ -176,5 +193,6 @@ header {
 }
 
 .dark-mode .dark-mode-button {
-  background-color: #555;
+  background-color: #555; /* Darker background for the dark mode button */
+  color: #f5f5f5; /* Light text color for the button */
 }

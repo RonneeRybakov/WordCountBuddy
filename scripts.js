@@ -5,8 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const readingSpeedDisplay = document.getElementById("readingSpeed");
   const clearButton = document.getElementById("clearButton");
   const copyButton = document.getElementById("copyButton");
+  const darkModeButton = document.querySelector(".dark-mode-button");
 
   textInput.addEventListener("input", updateCounts);
+
+  darkModeButton.addEventListener("click", toggleDarkMode);
 
   clearButton.addEventListener("click", () => {
     textInput.value = "";
@@ -34,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const wordsPerMinute = 200; //Average reading speed
     const readingTime = wordCount / wordsPerMinute;
     return readingTime.toFixed(2); // reading time in minutes
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
   }
 
   updateCounts();
